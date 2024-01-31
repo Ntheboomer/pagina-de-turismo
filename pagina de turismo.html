@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empresa de Turismo</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden; /* Evita que el video cree barras de desplazamiento */
+            color: #fff;
+            text-align: center;
+            position: relative; /* Añadido para posicionar elementos hijos relativos a este contenedor */
+        }
+
+        #videoFondo {
+            position: fixed;
+            top: 0;
+            left: 0;
+            min-width: 100%;
+            min-height: 100%;
+            object-fit: cover;
+            z-index: -1; /* Coloca el video en la capa más baja para que otros elementos estén encima */
+        }
+
+        #capaImagen {
+            position: absolute;
+            top: -187%;
+            left: -5%;
+            width: 41%; /* 2/5 del espacio total (40%) */
+            height: 600%;
+            background: url('Recursos/capa 4.png') no-repeat center center;
+            background-size: contain;
+            z-index: 0; /* Coloca la capa de imagen en una capa inferior que el video */
+        }
+
+        header {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1; /* Coloca el encabezado en una capa superior */
+        }
+
+        section {
+            position: relative; /* Añadido para posicionar los botones y el calendario relativos a este contenedor */
+            z-index: 1; /* Coloca los botones y el calendario en una capa superior */
+            padding: 20px;
+        }
+
+        #whatsappBtn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            color: #fff;
+            text-decoration: none;
+            background-color: #25D366; 
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #instagramBtn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            color: #fff;
+            text-decoration: none;
+            background: linear-gradient(45deg, #E1306C, #833AB4); /* Colores del degradado de Instagram */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #calendario {
+            width: 300px;
+            margin: 20px;
+            background-color: green; 
+            border-radius: 10px;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .viaje {
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        #informacionViaje {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Video de fondo -->
+    <video id="videoFondo" autoplay muted loop>
+        <source src="Recursos/el video que es.mp4" type="video/mp4">
+        Tu navegador no soporta el elemento de video.
+    </video>
+
+    <!-- Capa de imagen -->
+    <div id="capaImagen"></div>
+
+    <header>
+        <h1>Qturismo</h1>
+    </header>
+
+    <section>
+        <!-- Agregar número del cliente -->
+        <a href="https://wa.me/3794299445" target="_blank" id="whatsappBtn">WhatsApp</a>
+        <a href="https://www.instagram.com/qturismocorrientes/?hl=es" target="_blank" id="instagramBtn">Instagram</a>
+
+        <!-- Calendario de viajes -->
+        <div id="calendario">
+            <h2>Calendario de Viajes</h2>
+            <div class="viaje" onclick="mostrarInformacionViaje('titulo de info de viaje1', 'descripcion de info del viaje1.')">etiqueta del viaje1</div>
+            <div class="viaje" onclick="mostrarInformacionViaje('titulo de info de viaje2', 'descripcion de info del viaje2.')">etiqueta del viaje2</div>
+        </div>
+
+        <div id="informacionViaje">
+            <h2>Detalles del Viaje</h2>
+            <p id="nombreViaje"></p>
+            <p id="descripcionViaje"></p>
+        </div>
+    </section>
+
+    <script>
+        function mostrarInformacionViaje(nombre, descripcion) {
+            document.getElementById("nombreViaje").innerText = nombre;
+            document.getElementById("descripcionViaje").innerText = descripcion;
+            document.getElementById("informacionViaje").style.display = "block";
+        }
+    </script>
+
+</body>
+</html>
