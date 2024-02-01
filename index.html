@@ -27,28 +27,36 @@
 
         #capaImagen {
             position: absolute;
-            top: -187%;
+            top: -78%;
             left: -5%;
             width: 41%; /* 2/5 del espacio total (40%) */
-            height: 600%;
+            height: 800%;
             background: url('Recursos/capa 4.png') no-repeat center center;
             background-size: contain;
             z-index: 0; /* Coloca la capa de imagen en una capa inferior que el video */
         }
 
-        header {
+        #nuevaImagen {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 1; /* Coloca el encabezado en una capa superior */
+            top: 180%;
+            left: 3%;
+            width: 5%; /* Ajusta según sea necesario */
+            transform: translate(0, -50%);
+            z-index: 1; /* Coloca la nueva imagen encima del video */
+        }
+
+        #nuevaImagen2 {
+            position: absolute;
+            top: 190%;
+            right: 15%;
+            width: 30%; /* Ajusta según sea necesario */
+            transform: translate(0, -50%);
+            z-index: 1; /* Coloca la nueva imagen encima del video */
         }
 
         section {
-            position: relative; /* Añadido para posicionar los botones y el calendario relativos a este contenedor */
-            z-index: 1; /* Coloca los botones y el calendario en una capa superior */
+            position: relative; /* Añadido para posicionar los botones relativos a este contenedor */
+            z-index: 2; /* Coloca los botones en una capa superior */
             padding: 20px;
         }
 
@@ -77,41 +85,6 @@
             border-radius: 5px;
             cursor: pointer;
         }
-
-        #calendario {
-            width: 300px;
-            margin: 20px;
-            background-color: green; 
-            border-radius: 10px;
-            padding: 10px;
-            text-align: left;
-        }
-
-        .viaje {
-            margin-bottom: 10px;
-            cursor: pointer;
-        }
-
-        #informacionViaje {
-            display: none;
-        }
-
-        /* Media Query para pantallas pequeñas */
-        @media only screen and (max-width: 600px) {
-            body {
-                font-size: 14px;
-            }
-
-            #capaImagen {
-                top: -50%; /* Ajusta según sea necesario */
-                width: 100%;
-            }
-
-            #calendario {
-                width: 100%;
-                margin: 10px; /* Ajusta según sea necesario */
-            }
-        }
     </style>
 </head>
 <body>
@@ -125,36 +98,17 @@
     <!-- Capa de imagen -->
     <div id="capaImagen"></div>
 
-    <header>
-        <h1>Qturismo</h1>
-    </header>
+    <!-- Nueva imagen en el lado izquierdo -->
+    <img id="nuevaImagen" src="Recursos/Capa 3.png" alt="Nueva Imagen Izquierda">
+
+    <!-- Nueva imagen en el lado derecho, más grande -->
+    <img id="nuevaImagen2" src="Recursos/Capa 2.png" alt="Nueva Imagen Derecha">
 
     <section>
         <!-- Agregar número del cliente -->
-        <a href="https://wa.me/3794299445" target="_blank" id="whatsappBtn">WhatsApp</a>
+        <a href="https://wa.me/+54 9 379 498-4900" target="_blank" id="whatsappBtn">WhatsApp</a>
         <a href="https://www.instagram.com/qturismocorrientes/?hl=es" target="_blank" id="instagramBtn">Instagram</a>
-
-        <!-- Calendario de viajes -->
-        <div id="calendario">
-            <h2>Calendario de Viajes</h2>
-            <div class="viaje" onclick="mostrarInformacionViaje('titulo de info de viaje1', 'descripcion de info del viaje1.')">etiqueta del viaje1</div>
-            <div class="viaje" onclick="mostrarInformacionViaje('titulo de info de viaje2', 'descripcion de info del viaje2.')">etiqueta del viaje2</div>
-        </div>
-
-        <div id="informacionViaje">
-            <h2>Detalles del Viaje</h2>
-            <p id="nombreViaje"></p>
-            <p id="descripcionViaje"></p>
-        </div>
     </section>
-
-    <script>
-        function mostrarInformacionViaje(nombre, descripcion) {
-            document.getElementById("nombreViaje").innerText = nombre;
-            document.getElementById("descripcionViaje").innerText = descripcion;
-            document.getElementById("informacionViaje").style.display = "block";
-        }
-    </script>
 
 </body>
 </html>
